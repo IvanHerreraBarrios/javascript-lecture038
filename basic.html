@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript basics</title>
+</head>
+
+<body>
+    <h1>Javascript basics</h1>
+    <ul>
+        <li>Spring</li>
+        <li>Summer</li>
+        <li>Fall</li>
+        <li>Winter</li>
+    </ul>
+    <script>
+     function squareCallback(value, callback){
+      setTimeout(() => {
+        callback(value, value*value)
+      }, 0 | Math.random() * 100);
+     }
+
+     squareCallback(0, (value, result) => {
+      console.log("Start callback")
+      console.log("Callback " + value + "=" + result)
+        squareCallback(1, (value, result) => {
+        console.log("Callback " + value + "=" + result)
+          squareCallback(2, (value, result) => {
+          console.log("Callback " + value + "=" + result)
+            squareCallback(3, (value, result) => {
+            console.log("Callback " + value + "=" + result)
+          })
+        })
+      })
+     })
+    </script>
+</body>
+
+</html>
